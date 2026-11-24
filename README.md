@@ -44,3 +44,6 @@ See [Phase 5](docs/PHASE5.md) for indexed cluster routing, flat controls, lazy a
 
 ## Phase 6: recursive 369-slot mesh
 See [Phase 6](docs/PHASE6.md) for bounded ternary pocket expansion, flat/indexed/recursive routing controls, prefix isolation and actual shared-artifact inference smoke.
+
+## Phase 7: elastic pocket lifecycle
+See [Phase 7](docs/PHASE7.md) for persistent identities, bounded activation/retirement, scoped capability discovery and local delegation with actual inference controls.
