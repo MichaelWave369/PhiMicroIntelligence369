@@ -31,6 +31,8 @@ jobs:
       - run: node scripts/elastic-benchmark.mjs runs/nine
       - run: python training/train_gears.py --out runs/gears --base-steps 2 --steps 2 --batch 2
       - run: node scripts/gear-benchmark.mjs runs/gears
+      - run: python training/train_layer_gears.py --out runs/layers --base-steps 2 --steps 2 --batch 2
+      - run: node scripts/layer-benchmark.mjs runs/layers
       - uses: actions/upload-artifact@v4
         with:
           name: specialist-smoke-results
@@ -52,5 +54,7 @@ jobs:
             runs/nine/elastic/snapshot.json
             runs/gears/manifest.json
             runs/gears/gear-benchmark.json
+            runs/layers/manifest.json
+            runs/layers/layer-benchmark.json
             runs/nine/train.json
             runs/nine/test.json
