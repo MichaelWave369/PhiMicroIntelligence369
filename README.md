@@ -29,3 +29,6 @@ Model probability is not factual confidence. Reference matching is not retrieval
 [Upstream and licensing](docs/UPSTREAM.md) · [Experiment protocol](docs/EXPERIMENTS.md)
 
 Code MIT. External weights and datasets retain upstream notices and applicable licenses.
+
+## Phase 2: three-specialist experiment
+See [matched-budget specialist training and evaluation](docs/PHASE2.md). Run `python training/train.py` then `node scripts/benchmark.mjs runs` to train and compare three independently initialized specialists, a parameter-matched monolith and a deterministic reference baseline.

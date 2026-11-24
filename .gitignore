@@ -3,3 +3,6 @@ node_modules/
 *.bin
 *.pt
 .DS_Store
+runs/
+__pycache__/
+.venv/

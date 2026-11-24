@@ -1,0 +1,31 @@
+name: Specialist training smoke
+on:
+  pull_request:
+    paths: ['training/**','data/**','src/**','scripts/**','.github/workflows/specialists.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python training/dataset.py --out runs
+      - run: pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: python training/train.py --steps 2 --batch 2 --out runs
+      - run: node scripts/benchmark.mjs runs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: specialist-smoke-results
+          path: |
+            runs/manifest.json
+            runs/benchmark.json
+            runs/train.json
+            runs/test.json
