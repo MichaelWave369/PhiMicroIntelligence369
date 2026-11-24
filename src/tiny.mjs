@@ -1,3 +1,4 @@
+import {applyLayerGears} from "./layer-gears.mjs";
 import {applyGear} from "./gears.mjs";
 // Independent JavaScript implementation of the documented TNY2 format.
 // Upstream: WollyMonjac/Tiny-2.1 (MIT); see docs/UPSTREAM.md.
@@ -31,7 +32,7 @@ export class TinySession{
       for(let h=0;h<H;h++){const off=h*hd,scores=cache.k.map(k=>{let s=0;for(let i=0;i<hd;i++)s+=q[off+i]*k.w[off+i];return s*k.s/Math.sqrt(hd)});const max=Math.max(...scores),e=scores.map(s=>Math.exp(s-max)),sum=e.reduce((a,b)=>a+b,0);
         cache.v.forEach((v,j)=>{for(let i=0;i<hd;i++)a[off+i]+=e[j]/sum*v.s*v.w[off+i]})}
       const att=mv(b.o,a);for(let i=0;i<D;i++)x[i]+=att[i];
-      const mid=mv(b.f1,norm(x,b.n2));let act=0;for(let i=0;i<mid.length;i++){mid[i]=Math.max(0,mid[i]);act+=mid[i]}this.activity.push(act/mid.length);const ff=mv(b.f2,mid);for(let i=0;i<D;i++)x[i]+=ff[i]
+      const mid=mv(b.f1,norm(x,b.n2));let act=0;for(let i=0;i<mid.length;i++){mid[i]=Math.max(0,mid[i]);act+=mid[i]}this.activity.push(act/mid.length);const ff=mv(b.f2,mid);for(let i=0;i<D;i++)x[i]+=ff[i];if(this.m.layerGears)x.set(applyLayerGears(this.m.layerGears,l,x))
     });this.p++;const h=norm(x,nf),logits=mv(emb,h);return this.m.gear?applyGear(this.m.gear,h,logits):logits}
 }
 export function generate(model,question,max=55,onToken=()=>{}){

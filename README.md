@@ -50,3 +50,6 @@ See [Phase 7](docs/PHASE7.md) for persistent identities, bounded activation/reti
 
 ## Phase 8: learned residual gears
 See [Phase 8](docs/PHASE8.md) for shared frozen transformer, independently learned output-head residuals, FP32/INT8 artifacts, and routed/fixed/swapped/pooled controls.
+
+## Phase 9: compositional layer gears
+See [Phase 9](docs/PHASE9.md) for internal block-exit adapters, learned routing, simultaneous residuals, interference controls and multi-seed evaluation.
