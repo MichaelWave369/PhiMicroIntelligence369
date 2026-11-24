@@ -38,3 +38,6 @@ See [Phase 3](docs/PHASE3.md) and the browser console at `mesh.html`. Train with
 
 ## Phase 4: nine-node causal composition
 See [Phase 4](docs/PHASE4.md) for nine-domain training and the deterministic causal-belt experiment, with a flat scheduler control.
+
+## Phase 5: nested 36-pocket clusters
+See [Phase 5](docs/PHASE5.md) for indexed cluster routing, flat controls, lazy artifact residency, cross-cluster composition, and optional independent 36-model training.
