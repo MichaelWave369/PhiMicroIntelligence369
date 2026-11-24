@@ -151,5 +151,158 @@
       ]
     ],
     "unknown": "zorpnoun"
+  },
+  "coding": {
+    "templates": [
+      "what does coding acronym {subject} mean",
+      "expand coding acronym {subject}",
+      "full meaning of coding acronym {subject}"
+    ],
+    "heldTemplate": "define coding acronym {subject}",
+    "facts": [
+      [
+        "json",
+        "javascript object notation",
+        "https://developer.mozilla.org/en-US/docs/Glossary/JSON"
+      ],
+      [
+        "html",
+        "hypertext markup language",
+        "https://developer.mozilla.org/en-US/docs/Glossary/HTML"
+      ],
+      [
+        "css",
+        "cascading style sheets",
+        "https://developer.mozilla.org/en-US/docs/Glossary/CSS"
+      ],
+      [
+        "sql",
+        "structured query language",
+        "https://developer.mozilla.org/en-US/docs/Glossary/SQL"
+      ],
+      [
+        "xml",
+        "extensible markup language",
+        "https://developer.mozilla.org/en-US/docs/Glossary/XML"
+      ],
+      [
+        "api",
+        "application programming interface",
+        "https://developer.mozilla.org/en-US/docs/Glossary/API"
+      ],
+      [
+        "http",
+        "hypertext transfer protocol",
+        "https://developer.mozilla.org/en-US/docs/Glossary/HTTP"
+      ],
+      [
+        "url",
+        "uniform resource locator",
+        "https://developer.mozilla.org/en-US/docs/Glossary/URL"
+      ]
+    ],
+    "unknown": "zqcode"
+  },
+  "geography": {
+    "templates": [
+      "what is the capital of {subject}",
+      "capital city of {subject}",
+      "name the capital of {subject}"
+    ],
+    "heldTemplate": "which city is the capital of {subject}",
+    "facts": [
+      [
+        "france",
+        "Paris",
+        "https://www.cia.gov/the-world-factbook/countries/france/"
+      ],
+      [
+        "japan",
+        "Tokyo",
+        "https://www.cia.gov/the-world-factbook/countries/japan/"
+      ],
+      [
+        "italy",
+        "Rome",
+        "https://www.cia.gov/the-world-factbook/countries/italy/"
+      ],
+      [
+        "kenya",
+        "Nairobi",
+        "https://www.cia.gov/the-world-factbook/countries/kenya/"
+      ],
+      [
+        "peru",
+        "Lima",
+        "https://www.cia.gov/the-world-factbook/countries/peru/"
+      ],
+      [
+        "canada",
+        "Ottawa",
+        "https://www.cia.gov/the-world-factbook/countries/canada/"
+      ],
+      [
+        "norway",
+        "Oslo",
+        "https://www.cia.gov/the-world-factbook/countries/norway/"
+      ],
+      [
+        "egypt",
+        "Cairo",
+        "https://www.cia.gov/the-world-factbook/countries/egypt/"
+      ]
+    ],
+    "unknown": "zorpistan"
+  },
+  "units": {
+    "templates": [
+      "what is the si symbol for {subject}",
+      "si unit symbol for {subject}",
+      "give the si symbol for {subject}"
+    ],
+    "heldTemplate": "which si symbol denotes {subject}",
+    "facts": [
+      [
+        "metre",
+        "m",
+        "https://www.bipm.org/en/measurement-units"
+      ],
+      [
+        "second",
+        "s",
+        "https://www.bipm.org/en/measurement-units"
+      ],
+      [
+        "kilogram",
+        "kg",
+        "https://www.bipm.org/en/measurement-units"
+      ],
+      [
+        "ampere",
+        "A",
+        "https://www.bipm.org/en/measurement-units"
+      ],
+      [
+        "kelvin",
+        "K",
+        "https://www.bipm.org/en/measurement-units"
+      ],
+      [
+        "mole",
+        "mol",
+        "https://www.bipm.org/en/measurement-units"
+      ],
+      [
+        "candela",
+        "cd",
+        "https://www.bipm.org/en/measurement-units"
+      ],
+      [
+        "newton",
+        "N",
+        "https://www.bipm.org/en/measurement-units"
+      ]
+    ],
+    "unknown": "zorpunit"
   }
 }

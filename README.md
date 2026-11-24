@@ -32,3 +32,6 @@ Code MIT. External weights and datasets retain upstream notices and applicable l
 
 ## Phase 2: three-specialist experiment
 See [matched-budget specialist training and evaluation](docs/PHASE2.md). Run `python training/train.py` then `node scripts/benchmark.mjs runs` to train and compare three independently initialized specialists, a parameter-matched monolith and a deterministic reference baseline.
+
+## Phase 3: six-domain memory mesh
+See [Phase 3](docs/PHASE3.md) and the browser console at `mesh.html`. Train with `--profile six` for six specialists and a parameter-matched monolith.

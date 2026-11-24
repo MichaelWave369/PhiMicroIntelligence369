@@ -21,6 +21,8 @@ jobs:
       - run: pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
       - run: python training/train.py --steps 2 --batch 2 --out runs
       - run: node scripts/benchmark.mjs runs
+      - run: python training/train.py --profile six --steps 2 --batch 2 --out runs/six
+      - run: node scripts/benchmark.mjs runs/six
       - uses: actions/upload-artifact@v4
         with:
           name: specialist-smoke-results
@@ -29,3 +31,7 @@ jobs:
             runs/benchmark.json
             runs/train.json
             runs/test.json
+            runs/six/manifest.json
+            runs/six/benchmark.json
+            runs/six/train.json
+            runs/six/test.json

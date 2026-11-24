@@ -1,7 +1,8 @@
 import {generate} from "./tiny.mjs";
-export const DOMAINS=["network","science","language"];
-const rules={network:/\b(?:stand for|full form|expansion|expand)\b/i,science:/\b(?:chemical symbol|element symbol)\b/i,language:/\b(?:plural|pluralize)\b/i};
-export function classify(q){const hits=DOMAINS.filter(d=>rules[d].test(q));return hits.length===1?hits[0]:null}
+export const THREE_DOMAINS=["network","science","language"];
+export const DOMAINS=[...THREE_DOMAINS,"coding","geography","units"];
+const rules={network:/\b(?:stand for|full form|expansion|expand)\b/i,science:/\b(?:chemical symbol|element symbol)\b/i,language:/\b(?:plural|pluralize)\b/i,coding:/\bcoding acronym\b/i,geography:/\bcapital(?: city)?\b/i,units:/\bsi (?:unit )?symbol\b/i};
+export function classify(q){const hits=DOMAINS.filter(d=>rules[d].test(q)&&!(d==="network"&&rules.coding.test(q)));return hits.length===1?hits[0]:null}
 export function specialist(models,q){const domain=classify(q);if(!domain||!models[domain])return {domain,status:"abstain",answer:null};return {domain,...generate(models[domain],q)}}
 export function reference(trainRows,q){
  const domain=classify(q);if(!domain)return {domain,status:"abstain",answer:null};

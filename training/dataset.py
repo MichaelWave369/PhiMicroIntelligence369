@@ -3,12 +3,17 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 DOMAINS=("network","science","language")
-def build():
+SIX_DOMAINS=DOMAINS+("coding","geography","units")
+def domains_for(profile):
+    if profile=="three":return DOMAINS
+    if profile=="six":return SIX_DOMAINS
+    raise ValueError("unknown profile")
+def build(profile="three"):
     spec=json.loads((ROOT/"data/specialists.json").read_text(encoding="utf-8"))
     train=[]; test=[]
     def add(dst,domain,subject,template,answer,source,split):
         dst.append(dict(domain=domain,subject=subject,question=template.format(subject=subject),answer=answer,source=source,split=split))
-    for domain in DOMAINS:
+    for domain in domains_for(profile):
         v=spec[domain]
         for i,(subject,answer,source) in enumerate(v["facts"]):
             if i<6:
@@ -23,8 +28,8 @@ def build():
     return train,test
 if __name__=="__main__":
     import argparse
-    p=argparse.ArgumentParser();p.add_argument("--out",type=Path,default=ROOT/"runs");a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("--out",type=Path,default=ROOT/"runs");p.add_argument("--profile",choices=("three","six"),default="three");a=p.parse_args()
     a.out.mkdir(parents=True,exist_ok=True)
-    for name,rows in zip(("train","test"),build()):
+    for name,rows in zip(("train","test"),build(a.profile)):
         (a.out/(name+".json")).write_text(json.dumps(rows,indent=2)+"\n",encoding="utf-8")
         print(name,len(rows))
