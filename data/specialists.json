@@ -1,0 +1,155 @@
+{
+  "network": {
+    "templates": [
+      "what does {subject} stand for",
+      "expand {subject}",
+      "give the full form of {subject}"
+    ],
+    "heldTemplate": "what is the expansion of {subject}",
+    "facts": [
+      [
+        "dns",
+        "domain name system",
+        "https://www.rfc-editor.org/rfc/rfc1034"
+      ],
+      [
+        "dhcp",
+        "dynamic host configuration protocol",
+        "https://www.rfc-editor.org/rfc/rfc2131"
+      ],
+      [
+        "tcp",
+        "transmission control protocol",
+        "https://www.rfc-editor.org/rfc/rfc9293"
+      ],
+      [
+        "udp",
+        "user datagram protocol",
+        "https://www.rfc-editor.org/rfc/rfc768"
+      ],
+      [
+        "arp",
+        "address resolution protocol",
+        "https://www.rfc-editor.org/rfc/rfc826"
+      ],
+      [
+        "icmp",
+        "internet control message protocol",
+        "https://www.rfc-editor.org/rfc/rfc792"
+      ],
+      [
+        "ntp",
+        "network time protocol",
+        "https://www.rfc-editor.org/rfc/rfc5905"
+      ],
+      [
+        "snmp",
+        "simple network management protocol",
+        "https://www.rfc-editor.org/rfc/rfc3411"
+      ]
+    ],
+    "unknown": "xyznp"
+  },
+  "science": {
+    "templates": [
+      "what is the chemical symbol for {subject}",
+      "chemical symbol for {subject}",
+      "give the element symbol for {subject}"
+    ],
+    "heldTemplate": "which element symbol represents {subject}",
+    "facts": [
+      [
+        "gold",
+        "Au",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ],
+      [
+        "silver",
+        "Ag",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ],
+      [
+        "carbon",
+        "C",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ],
+      [
+        "oxygen",
+        "O",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ],
+      [
+        "nitrogen",
+        "N",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ],
+      [
+        "helium",
+        "He",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ],
+      [
+        "copper",
+        "Cu",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ],
+      [
+        "iron",
+        "Fe",
+        "https://iupac.org/what-we-do/periodic-table-of-elements/"
+      ]
+    ],
+    "unknown": "blorbium"
+  },
+  "language": {
+    "templates": [
+      "what is the plural of {subject}",
+      "plural of {subject}",
+      "give the plural form of {subject}"
+    ],
+    "heldTemplate": "how do you pluralize {subject}",
+    "facts": [
+      [
+        "mouse",
+        "mice",
+        "https://dictionary.cambridge.org/dictionary/english/mouse"
+      ],
+      [
+        "child",
+        "children",
+        "https://dictionary.cambridge.org/dictionary/english/child"
+      ],
+      [
+        "goose",
+        "geese",
+        "https://dictionary.cambridge.org/dictionary/english/goose"
+      ],
+      [
+        "tooth",
+        "teeth",
+        "https://dictionary.cambridge.org/dictionary/english/tooth"
+      ],
+      [
+        "foot",
+        "feet",
+        "https://dictionary.cambridge.org/dictionary/english/foot"
+      ],
+      [
+        "person",
+        "people",
+        "https://dictionary.cambridge.org/dictionary/english/person"
+      ],
+      [
+        "ox",
+        "oxen",
+        "https://dictionary.cambridge.org/dictionary/english/ox"
+      ],
+      [
+        "woman",
+        "women",
+        "https://dictionary.cambridge.org/dictionary/english/woman"
+      ]
+    ],
+    "unknown": "zorpnoun"
+  }
+}
