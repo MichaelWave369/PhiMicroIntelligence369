@@ -56,3 +56,6 @@ See [Phase 9](docs/PHASE9.md) for internal block-exit adapters, learned routing,
 
 ## Phase 10: nested learned gears
 See [Phase 10](docs/PHASE10.md) for frozen parent/child residuals, matched total and active-rank controls, hierarchical routing and the three-seed quality pilot.
+
+## Phase 11: learned topology
+See [Phase 11](docs/PHASE11.md) for the recorded Phase 10 quality results, fit-only gradient grouping, calibration-selected junctions and three-seed controls.

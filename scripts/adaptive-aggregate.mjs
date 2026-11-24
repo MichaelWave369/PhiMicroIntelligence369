@@ -1,0 +1,5 @@
+import {readFileSync,writeFileSync} from "node:fs";import {join} from "node:path";
+const [out,...dirs]=process.argv.slice(2),r=dirs.map(d=>JSON.parse(readFileSync(join(d,"adaptive-benchmark.json"),"utf8")));
+if(r.map(x=>x.seed).sort((a,b)=>a-b).join(",")!=="369,636,963"||r.some(x=>x.steps!==r[0].steps||x.batch!==r[0].batch||x.baseSteps!==r[0].baseSteps||JSON.stringify(x.budgets)!==JSON.stringify(r[0].budgets)))throw Error("incompatible seeds/budgets");
+const mean=a=>a.reduce((s,v)=>s+v,0)/a.length,summary={};for(const stage of ["fit","test"]){summary[stage]={};for(const s of Object.keys(r[0].summary[stage])){const a=r.map(x=>x.summary[stage][s].accuracy),n=r.map(x=>x.summary[stage][s].meanNll);summary[stage][s]={accuracy:a,meanAccuracy:mean(a),nll:n,meanNll:n.every(Number.isFinite)?mean(n):null}}}
+const result={schema:1,seeds:r.map(x=>x.seed),steps:r[0].steps,baseSteps:r[0].baseSteps,batch:r[0].batch,summary,topology:r.map(x=>({seed:x.seed,groups:x.groups,groupScores:x.groupScores,policy:x.policy}))};writeFileSync(out,JSON.stringify(result,null,2)+"\n");console.log(JSON.stringify(result,null,2));

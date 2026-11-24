@@ -1,0 +1,51 @@
+name: Adaptive topology pilot
+on:
+  pull_request:
+    paths: ['training/train_adaptive_topology.py','training/topology_partition.py','training/test_topology_partition.py','src/adaptive-junction.mjs','scripts/adaptive-*.mjs','.github/workflows/adaptive-topology.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [369, 636, 963]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m unittest discover -s training -p test_topology_partition.py
+      - run: pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: python training/train_adaptive_topology.py --out runs/adaptive-${{ matrix.seed }} --base-steps 300 --steps 120 --batch 8 --seed ${{ matrix.seed }}
+      - run: node scripts/adaptive-benchmark.mjs runs/adaptive-${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: adaptive-seed-${{ matrix.seed }}
+          path: |
+            runs/adaptive-${{ matrix.seed }}/manifest.json
+            runs/adaptive-${{ matrix.seed }}/junction-policy.json
+            runs/adaptive-${{ matrix.seed }}/adaptive-benchmark.json
+  aggregate:
+    needs: seed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: adaptive-seed-*
+          path: results
+      - run: node scripts/adaptive-aggregate.mjs results/aggregate.json results/adaptive-seed-369 results/adaptive-seed-636 results/adaptive-seed-963
+      - uses: actions/upload-artifact@v4
+        with:
+          name: adaptive-topology-aggregate
+          path: results/aggregate.json
