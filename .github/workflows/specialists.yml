@@ -29,6 +29,8 @@ jobs:
       - run: node scripts/cluster-benchmark.mjs runs/nine shared-nine
       - run: node scripts/recursive-benchmark.mjs runs/nine
       - run: node scripts/elastic-benchmark.mjs runs/nine
+      - run: python training/train_gears.py --out runs/gears --base-steps 2 --steps 2 --batch 2
+      - run: node scripts/gear-benchmark.mjs runs/gears
       - uses: actions/upload-artifact@v4
         with:
           name: specialist-smoke-results
@@ -48,5 +50,7 @@ jobs:
             runs/nine/recursive-benchmark.json
             runs/nine/elastic-benchmark.json
             runs/nine/elastic/snapshot.json
+            runs/gears/manifest.json
+            runs/gears/gear-benchmark.json
             runs/nine/train.json
             runs/nine/test.json

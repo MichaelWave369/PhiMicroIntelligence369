@@ -47,3 +47,6 @@ See [Phase 6](docs/PHASE6.md) for bounded ternary pocket expansion, flat/indexed
 
 ## Phase 7: elastic pocket lifecycle
 See [Phase 7](docs/PHASE7.md) for persistent identities, bounded activation/retirement, scoped capability discovery and local delegation with actual inference controls.
+
+## Phase 8: learned residual gears
+See [Phase 8](docs/PHASE8.md) for shared frozen transformer, independently learned output-head residuals, FP32/INT8 artifacts, and routed/fixed/swapped/pooled controls.
