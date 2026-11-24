@@ -1,0 +1,434 @@
+[
+  {
+    "domain": "network",
+    "subject": "dns",
+    "question": "In network terminology, spell out DNS.",
+    "answer": "domain name system",
+    "source": "https://www.rfc-editor.org/rfc/rfc1034",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "network",
+    "subject": "dhcp",
+    "question": "A DHCP abbreviation has which full name?",
+    "answer": "dynamic host configuration protocol",
+    "source": "https://www.rfc-editor.org/rfc/rfc2131",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "network",
+    "subject": "icmp",
+    "question": "In a packet capture, what is ICMP short for?",
+    "answer": "internet control message protocol",
+    "source": "https://www.rfc-editor.org/rfc/rfc792",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "network",
+    "subject": "ntp",
+    "question": "What words do NTP's initials represent?",
+    "answer": "network time protocol",
+    "source": "https://www.rfc-editor.org/rfc/rfc5905",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "network",
+    "subject": "snmp",
+    "question": "Spell SNMP out as a networking term.",
+    "answer": "simple network management protocol",
+    "source": "https://www.rfc-editor.org/rfc/rfc3411",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "network",
+    "subject": "qzvnet",
+    "question": "What does networking abbreviation qzvnet denote?",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "science",
+    "subject": "gold",
+    "question": "Which periodic-table letters identify gold?",
+    "answer": "Au",
+    "source": "https://iupac.org/what-we-do/periodic-table-of-elements/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "science",
+    "subject": "silver",
+    "question": "Write the chemical symbol used for silver.",
+    "answer": "Ag",
+    "source": "https://iupac.org/what-we-do/periodic-table-of-elements/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "science",
+    "subject": "helium",
+    "question": "How is helium represented in the periodic table?",
+    "answer": "He",
+    "source": "https://iupac.org/what-we-do/periodic-table-of-elements/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "science",
+    "subject": "copper",
+    "question": "On the periodic table, what letters identify copper?",
+    "answer": "Cu",
+    "source": "https://iupac.org/what-we-do/periodic-table-of-elements/",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "science",
+    "subject": "iron",
+    "question": "Give iron's element notation.",
+    "answer": "Fe",
+    "source": "https://iupac.org/what-we-do/periodic-table-of-elements/",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "science",
+    "subject": "vrilnium",
+    "question": "What is the element symbol assigned to vrilnium?",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "language",
+    "subject": "mouse",
+    "question": "If there are two, how do you write mouse in plural?",
+    "answer": "mice",
+    "source": "https://dictionary.cambridge.org/dictionary/english/mouse",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "language",
+    "subject": "child",
+    "question": "One child, many what?",
+    "answer": "children",
+    "source": "https://dictionary.cambridge.org/dictionary/english/child",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "language",
+    "subject": "foot",
+    "question": "Give the plural spelling of foot.",
+    "answer": "feet",
+    "source": "https://dictionary.cambridge.org/dictionary/english/foot",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "language",
+    "subject": "ox",
+    "question": "One ox, several what?",
+    "answer": "oxen",
+    "source": "https://dictionary.cambridge.org/dictionary/english/ox",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "language",
+    "subject": "woman",
+    "question": "How would you pluralize woman?",
+    "answer": "women",
+    "source": "https://dictionary.cambridge.org/dictionary/english/woman",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "language",
+    "subject": "zefmorp",
+    "question": "Supply the irregular plural of invented noun zefmorp.",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "coding",
+    "subject": "json",
+    "question": "In software, spell out JSON.",
+    "answer": "javascript object notation",
+    "source": "https://developer.mozilla.org/en-US/docs/Glossary/JSON",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "coding",
+    "subject": "css",
+    "question": "What words make up the initials CSS in web development?",
+    "answer": "cascading style sheets",
+    "source": "https://developer.mozilla.org/en-US/docs/Glossary/CSS",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "coding",
+    "subject": "api",
+    "question": "What is API short for in programming?",
+    "answer": "application programming interface",
+    "source": "https://developer.mozilla.org/en-US/docs/Glossary/API",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "coding",
+    "subject": "http",
+    "question": "Spell out HTTP as a computing abbreviation.",
+    "answer": "hypertext transfer protocol",
+    "source": "https://developer.mozilla.org/en-US/docs/Glossary/HTTP",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "coding",
+    "subject": "url",
+    "question": "What is the full name of URL in computing?",
+    "answer": "uniform resource locator",
+    "source": "https://developer.mozilla.org/en-US/docs/Glossary/URL",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "coding",
+    "subject": "vqzapi",
+    "question": "Expand the fictional coding acronym vqzapi.",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "geography",
+    "subject": "france",
+    "question": "Which city serves as France's national capital?",
+    "answer": "Paris",
+    "source": "https://www.cia.gov/the-world-factbook/countries/france/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "geography",
+    "subject": "japan",
+    "question": "Japan has which seat of national government?",
+    "answer": "Tokyo",
+    "source": "https://www.cia.gov/the-world-factbook/countries/japan/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "geography",
+    "subject": "canada",
+    "question": "Name Canada's capital, not its largest city.",
+    "answer": "Ottawa",
+    "source": "https://www.cia.gov/the-world-factbook/countries/canada/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "geography",
+    "subject": "norway",
+    "question": "What city is Norway's seat of government?",
+    "answer": "Oslo",
+    "source": "https://www.cia.gov/the-world-factbook/countries/norway/",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "geography",
+    "subject": "egypt",
+    "question": "Identify Egypt's capital city.",
+    "answer": "Cairo",
+    "source": "https://www.cia.gov/the-world-factbook/countries/egypt/",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "geography",
+    "subject": "velqara",
+    "question": "Which city is the capital of fictional nation velqara?",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "units",
+    "subject": "metre",
+    "question": "Write the standard SI notation for metre.",
+    "answer": "m",
+    "source": "https://www.bipm.org/en/measurement-units",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "units",
+    "subject": "ampere",
+    "question": "What is the SI symbol for ampere, including case?",
+    "answer": "A",
+    "source": "https://www.bipm.org/en/measurement-units",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "units",
+    "subject": "mole",
+    "question": "Give the unit symbol for mole in SI notation.",
+    "answer": "mol",
+    "source": "https://www.bipm.org/en/measurement-units",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "units",
+    "subject": "candela",
+    "question": "What letters denote candela in SI?",
+    "answer": "cd",
+    "source": "https://www.bipm.org/en/measurement-units",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "units",
+    "subject": "newton",
+    "question": "Write newton using its SI unit symbol.",
+    "answer": "N",
+    "source": "https://www.bipm.org/en/measurement-units",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "units",
+    "subject": "brantle",
+    "question": "What is the SI symbol for invented unit brantle?",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "geometry",
+    "subject": "triangle",
+    "question": "A triangle has exactly how many edges?",
+    "answer": "3",
+    "source": "https://mathworld.wolfram.com/Polygon.html",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "geometry",
+    "subject": "pentagon",
+    "question": "Count the sides of one pentagon.",
+    "answer": "5",
+    "source": "https://mathworld.wolfram.com/Polygon.html",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "geometry",
+    "subject": "octagon",
+    "question": "How many edges outline an octagon?",
+    "answer": "8",
+    "source": "https://mathworld.wolfram.com/Polygon.html",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "geometry",
+    "subject": "nonagon",
+    "question": "Give the edge count of a nonagon.",
+    "answer": "9",
+    "source": "https://mathworld.wolfram.com/Polygon.html",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "geometry",
+    "subject": "decagon",
+    "question": "How many straight sides bound a decagon?",
+    "answer": "10",
+    "source": "https://mathworld.wolfram.com/Polygon.html",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "geometry",
+    "subject": "veqagon",
+    "question": "How many polygon sides does a fictional veqagon have?",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "music",
+    "subject": "minor second",
+    "question": "How many half steps separate notes a minor second apart?",
+    "answer": "1",
+    "source": "https://openmusictheory.github.io/intervals.html",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "music",
+    "subject": "major third",
+    "question": "Give the chromatic distance of a major third.",
+    "answer": "4",
+    "source": "https://openmusictheory.github.io/intervals.html",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "music",
+    "subject": "perfect fifth",
+    "question": "A perfect fifth spans how many semitones?",
+    "answer": "7",
+    "source": "https://openmusictheory.github.io/intervals.html",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "music",
+    "subject": "minor sixth",
+    "question": "How many half steps wide is a minor sixth?",
+    "answer": "8",
+    "source": "https://openmusictheory.github.io/intervals.html",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "music",
+    "subject": "octave",
+    "question": "Count the semitones spanning one octave.",
+    "answer": "12",
+    "source": "https://openmusictheory.github.io/intervals.html",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "music",
+    "subject": "zenth",
+    "question": "Give the semitone distance of invented interval zenth.",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  },
+  {
+    "domain": "astronomy",
+    "subject": "mercury",
+    "question": "Counting outward from the sun, what number is Mercury?",
+    "answer": "1",
+    "source": "https://science.nasa.gov/solar-system/planets/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "astronomy",
+    "subject": "earth",
+    "question": "Give Earth's position in the sequence of planets.",
+    "answer": "3",
+    "source": "https://science.nasa.gov/solar-system/planets/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "astronomy",
+    "subject": "saturn",
+    "question": "Which numbered planet from the sun is Saturn?",
+    "answer": "6",
+    "source": "https://science.nasa.gov/solar-system/planets/",
+    "split": "fresh_known"
+  },
+  {
+    "domain": "astronomy",
+    "subject": "uranus",
+    "question": "What is Uranus's ordinal position from the sun?",
+    "answer": "7",
+    "source": "https://science.nasa.gov/solar-system/planets/",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "astronomy",
+    "subject": "neptune",
+    "question": "Count outward to Neptune; give its planet number.",
+    "answer": "8",
+    "source": "https://science.nasa.gov/solar-system/planets/",
+    "split": "fresh_subject"
+  },
+  {
+    "domain": "astronomy",
+    "subject": "qevron",
+    "question": "What planet order does fictional planet qevron occupy?",
+    "answer": null,
+    "source": null,
+    "split": "fresh_unknown"
+  }
+]
