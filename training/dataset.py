@@ -4,9 +4,11 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 DOMAINS=("network","science","language")
 SIX_DOMAINS=DOMAINS+("coding","geography","units")
+NINE_DOMAINS=SIX_DOMAINS+("geometry","music","astronomy")
 def domains_for(profile):
     if profile=="three":return DOMAINS
     if profile=="six":return SIX_DOMAINS
+    if profile=="nine":return NINE_DOMAINS
     raise ValueError("unknown profile")
 def build(profile="three"):
     spec=json.loads((ROOT/"data/specialists.json").read_text(encoding="utf-8"))
@@ -28,7 +30,7 @@ def build(profile="three"):
     return train,test
 if __name__=="__main__":
     import argparse
-    p=argparse.ArgumentParser();p.add_argument("--out",type=Path,default=ROOT/"runs");p.add_argument("--profile",choices=("three","six"),default="three");a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("--out",type=Path,default=ROOT/"runs");p.add_argument("--profile",choices=("three","six","nine"),default="three");a=p.parse_args()
     a.out.mkdir(parents=True,exist_ok=True)
     for name,rows in zip(("train","test"),build(a.profile)):
         (a.out/(name+".json")).write_text(json.dumps(rows,indent=2)+"\n",encoding="utf-8")
