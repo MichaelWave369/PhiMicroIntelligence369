@@ -33,6 +33,8 @@ jobs:
       - run: node scripts/gear-benchmark.mjs runs/gears
       - run: python training/train_layer_gears.py --out runs/layers --base-steps 2 --steps 2 --batch 2
       - run: node scripts/layer-benchmark.mjs runs/layers
+      - run: python training/train_nested_gears.py --out runs/nested --base-steps 2 --steps 2 --batch 2
+      - run: node scripts/nested-benchmark.mjs runs/nested
       - uses: actions/upload-artifact@v4
         with:
           name: specialist-smoke-results
@@ -56,5 +58,7 @@ jobs:
             runs/gears/gear-benchmark.json
             runs/layers/manifest.json
             runs/layers/layer-benchmark.json
+            runs/nested/manifest.json
+            runs/nested/nested-benchmark.json
             runs/nine/train.json
             runs/nine/test.json

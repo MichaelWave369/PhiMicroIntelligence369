@@ -1,0 +1,17 @@
+{
+  "communication": [
+    "network",
+    "coding",
+    "language"
+  ],
+  "physical": [
+    "science",
+    "units",
+    "astronomy"
+  ],
+  "structure": [
+    "geography",
+    "geometry",
+    "music"
+  ]
+}

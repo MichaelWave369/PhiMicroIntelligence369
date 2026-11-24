@@ -1,0 +1,49 @@
+name: Nested gear quality pilot
+on:
+  pull_request:
+    paths: ['training/train_nested_gears.py','src/nested-gears.mjs','data/nested-groups.json','scripts/nested-*.mjs','.github/workflows/nested-quality.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [369, 636, 963]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: python training/train_nested_gears.py --out runs/nested-${{ matrix.seed }} --base-steps 120 --steps 60 --batch 8 --seed ${{ matrix.seed }}
+      - run: node scripts/nested-benchmark.mjs runs/nested-${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nested-seed-${{ matrix.seed }}
+          path: |
+            runs/nested-${{ matrix.seed }}/manifest.json
+            runs/nested-${{ matrix.seed }}/nested-benchmark.json
+  aggregate:
+    needs: seed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: nested-seed-*
+          path: results
+      - run: node scripts/nested-aggregate.mjs results/aggregate.json results/nested-seed-369 results/nested-seed-636 results/nested-seed-963
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nested-quality-aggregate
+          path: results/aggregate.json

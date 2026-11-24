@@ -53,3 +53,6 @@ See [Phase 8](docs/PHASE8.md) for shared frozen transformer, independently learn
 
 ## Phase 9: compositional layer gears
 See [Phase 9](docs/PHASE9.md) for internal block-exit adapters, learned routing, simultaneous residuals, interference controls and multi-seed evaluation.
+
+## Phase 10: nested learned gears
+See [Phase 10](docs/PHASE10.md) for frozen parent/child residuals, matched total and active-rank controls, hierarchical routing and the three-seed quality pilot.
