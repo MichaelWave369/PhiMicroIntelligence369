@@ -59,3 +59,6 @@ See [Phase 10](docs/PHASE10.md) for frozen parent/child residuals, matched total
 
 ## Phase 11: learned topology
 See [Phase 11](docs/PHASE11.md) for the recorded Phase 10 quality results, fit-only gradient grouping, calibration-selected junctions and three-seed controls.
+
+## Phase 12: generalization and resource lab
+See [Phase 12](docs/PHASE12.md) for Phase 11 results, matched-example augmentation/capacity/normalization controls, fresh evaluation and process-level resource measurements.

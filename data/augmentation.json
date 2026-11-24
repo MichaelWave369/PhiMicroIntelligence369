@@ -1,0 +1,56 @@
+{
+  "network": [
+    "write out {subject} in full",
+    "unabbreviate {subject} for networking",
+    "networking abbreviation {subject} means what",
+    "in networking give the expanded name of {subject}"
+  ],
+  "science": [
+    "give the periodic table abbreviation of {subject}",
+    "how is {subject} written as an element",
+    "write the chemical notation for {subject}",
+    "identify the element symbol of {subject}"
+  ],
+  "language": [
+    "give the word for several {subject}",
+    "write the plural noun corresponding to {subject}",
+    "change {subject} from singular to plural",
+    "give the plural spelling for {subject}"
+  ],
+  "coding": [
+    "write out the programming abbreviation {subject}",
+    "what is the expanded name of coding acronym {subject}",
+    "give the full words behind coding acronym {subject}",
+    "spell out the computing term {subject}"
+  ],
+  "geography": [
+    "name the government capital city in {subject}",
+    "identify the national capital of {subject}",
+    "where is the capital city in {subject}",
+    "give the capital city name for {subject}"
+  ],
+  "units": [
+    "give the standard si unit abbreviation for {subject}",
+    "how is the si unit {subject} abbreviated",
+    "write the si symbol of {subject}",
+    "what notation represents the si unit {subject}"
+  ],
+  "geometry": [
+    "state the edge count for a {subject} polygon",
+    "give the number of sides in a {subject}",
+    "count the edges on a {subject}",
+    "what is the number of polygon sides in a {subject}"
+  ],
+  "music": [
+    "state the number of half steps in a {subject}",
+    "count the semitones across a {subject}",
+    "give the interval width in semitones for {subject}",
+    "how many chromatic steps make a {subject}"
+  ],
+  "astronomy": [
+    "give the ordinal planet position of {subject}",
+    "count from the sun to the planet {subject}",
+    "what number planet is {subject} from the sun",
+    "state the solar system planet order for {subject}"
+  ]
+}

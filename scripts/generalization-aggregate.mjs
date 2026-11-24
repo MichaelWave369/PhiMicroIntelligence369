@@ -1,0 +1,5 @@
+import {readFileSync,writeFileSync} from "node:fs";import {join} from "node:path";
+const [out,...dirs]=process.argv.slice(2),r=dirs.map(d=>JSON.parse(readFileSync(join(d,"generalization-benchmark.json"),"utf8")));if(r.map(x=>x.seed).sort((a,b)=>a-b).join(",")!=="369,636,963")throw Error("three preregistered seeds required");
+const mean=a=>a.reduce((s,v)=>s+v,0)/a.length,summary={};
+for(const system of Object.keys(r[0].systems)){summary[system]={};for(const stage of ["raw","old","fresh"]){const a=r.map(x=>x.systems[system].summary[stage]),v=a.map(x=>x.accuracy);summary[system][stage]={accuracy:v,meanAccuracy:mean(v),meanCoverage:mean(a.map(x=>x.coverage)),splits:Object.fromEntries(Object.keys(a[0].splits).map(k=>[k,{meanAccuracy:mean(a.map(x=>x.splits[k].accuracy)),meanCoverage:mean(a.map(x=>x.splits[k].coverage))}]))}}summary[system].resources=r.map(x=>({seed:x.seed,...x.systems[system].resources,medianFreshMs:x.systems[system].summary.fresh.medianMs,p95FreshMs:x.systems[system].summary.fresh.p95Ms}))}
+const report={schema:1,seeds:r.map(x=>x.seed),summary};writeFileSync(out,JSON.stringify(report,null,2)+"\n");console.log(JSON.stringify(report,null,2));

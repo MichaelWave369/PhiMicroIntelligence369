@@ -1,0 +1,49 @@
+name: Generalization and resource pilot
+on:
+  pull_request:
+    paths: ['training/generalization_data.py','training/train_generalization.py','data/augmentation.json','data/fresh-evaluation.json','src/canonical-question.mjs','scripts/generalization-*.mjs','.github/workflows/generalization.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [369, 636, 963]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: python training/train_generalization.py --out runs/generalization-${{ matrix.seed }} --steps 600 --batch 8 --seed ${{ matrix.seed }}
+      - run: node scripts/generalization-benchmark.mjs runs/generalization-${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generalization-seed-${{ matrix.seed }}
+          path: |
+            runs/generalization-${{ matrix.seed }}/manifest.json
+            runs/generalization-${{ matrix.seed }}/generalization-benchmark.json
+  aggregate:
+    needs: seed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: generalization-seed-*
+          path: results
+      - run: node scripts/generalization-aggregate.mjs results/aggregate.json results/generalization-seed-369 results/generalization-seed-636 results/generalization-seed-963
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generalization-aggregate
+          path: results/aggregate.json
