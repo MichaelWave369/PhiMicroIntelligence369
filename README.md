@@ -41,3 +41,6 @@ See [Phase 4](docs/PHASE4.md) for nine-domain training and the deterministic cau
 
 ## Phase 5: nested 36-pocket clusters
 See [Phase 5](docs/PHASE5.md) for indexed cluster routing, flat controls, lazy artifact residency, cross-cluster composition, and optional independent 36-model training.
+
+## Phase 6: recursive 369-slot mesh
+See [Phase 6](docs/PHASE6.md) for bounded ternary pocket expansion, flat/indexed/recursive routing controls, prefix isolation and actual shared-artifact inference smoke.
