@@ -1,0 +1,18 @@
+name: MicroIntelligence CI
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - name: Fetch pinned upstream model and smoke-test real inference
+        run: |
+          curl --fail --silent --show-error --location 'https://raw.githubusercontent.com/WollyMonjac/Tiny-2.1/49348445661ffc9106f243afb4eafe499a51e286/dos/TINY.BIN' -o /tmp/TINY.BIN
+          test "$(git hash-object /tmp/TINY.BIN)" = 'f76fe9c4c554b1f7180830177d1552da31a8fa3e'
+          node --input-type=module -e 'import {readFileSync} from "node:fs"; import assert from "node:assert/strict"; import {parseTiny,generate} from "./src/tiny.mjs"; const m=parseTiny(readFileSync("/tmp/TINY.BIN")); assert.equal(m.parameters,366528); assert.equal(m.bytes,381808); for(const q of ["what is the symbol for gold","what is 7 times 8","what is the capital of peru"]){const r=generate(m,q); assert.ok(r.answer.length>0); console.log(JSON.stringify({q,answer:r.answer,status:r.status}));}'
