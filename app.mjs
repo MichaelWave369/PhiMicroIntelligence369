@@ -1,0 +1,12 @@
+import {route,benchmark} from "./src/router.mjs";
+const $=id=>document.getElementById(id),worker=new Worker("./src/worker.mjs",{type:"module"});let loaded=false,busy=false;
+function state(t){$("status").textContent=t}
+function ready(v){loaded=v;$("run").disabled=!v||busy}
+function load(buffer){if(busy)return;busy=true;ready(false);state("Parsing model…");$("load").disabled=true;$("file").disabled=true;worker.postMessage({type:"load",buffer},[buffer])}
+$("file").onchange=async e=>{try{if(e.target.files[0])load(await e.target.files[0].arrayBuffer())}catch(err){state(err.message)}};
+$("load").onclick=async()=>{if(busy)return;$("load").disabled=true;state("Fetching pinned upstream model…");try{const res=await fetch("https://raw.githubusercontent.com/WollyMonjac/Tiny-2.1/49348445661ffc9106f243afb4eafe499a51e286/dos/TINY.BIN");if(!res.ok)throw Error("HTTP "+res.status);load(await res.arrayBuffer())}catch(err){state("Download failed; use local TINY.BIN. "+err.message);$("load").disabled=false}};
+$("ask").onclick=()=>{const r=route($("question").value);$("reference").textContent=JSON.stringify(r,null,2)};
+$("run").onclick=()=>{if(!loaded||busy)return;busy=true;ready(true);$("neural").textContent="";$("trace").textContent="";state("Generating…");worker.postMessage({type:"generate",question:$("question").value})};
+worker.onmessage=({data:d})=>{if(d.type==="loaded"){busy=false;ready(true);$("file").disabled=false;$("load").disabled=false;state("Model loaded");$("meta").textContent=JSON.stringify(d.meta,null,2)}else if(d.type==="token"){$("neural").textContent+=d.token.character;$("trace").textContent="Next-character probability: "+(d.token.probability*100).toFixed(1)+"% (not factual confidence)\nLayer activity: "+d.token.activity.map(x=>x.toFixed(3)).join(" | ")}else if(d.type==="done"){busy=false;ready(true);state("Generated • unverified • "+d.ms.toFixed(1)+" ms");$("neural").textContent=d.answer||"(empty response)"}else if(d.type==="error"){busy=false;ready(d.loaded);$("file").disabled=false;$("load").disabled=false;state(d.message)}};
+worker.onerror=e=>{busy=false;ready(false);$("file").disabled=false;$("load").disabled=false;state("Worker error: "+e.message)};
+$("bench").onclick=()=>{const r=benchmark();$("results").textContent=r.filter(x=>x.pass).length+"/"+r.length+" fixture checks passed (not a generalization benchmark)\n"+r.map(x=>(x.pass?"PASS ":"FAIL ")+x.question+" → "+x.result).join("\n")};

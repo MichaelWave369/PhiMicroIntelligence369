@@ -1,0 +1,9 @@
+{
+  "name": "phi-micro-intelligence-369",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
