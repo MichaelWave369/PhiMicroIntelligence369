@@ -23,6 +23,9 @@ jobs:
       - run: node scripts/benchmark.mjs runs
       - run: python training/train.py --profile six --steps 2 --batch 2 --out runs/six
       - run: node scripts/benchmark.mjs runs/six
+      - run: python training/train.py --profile nine --steps 2 --batch 2 --out runs/nine
+      - run: node scripts/benchmark.mjs runs/nine
+      - run: node scripts/composition-benchmark.mjs runs/nine
       - uses: actions/upload-artifact@v4
         with:
           name: specialist-smoke-results
@@ -35,3 +38,8 @@ jobs:
             runs/six/benchmark.json
             runs/six/train.json
             runs/six/test.json
+            runs/nine/manifest.json
+            runs/nine/benchmark.json
+            runs/nine/composition.json
+            runs/nine/train.json
+            runs/nine/test.json

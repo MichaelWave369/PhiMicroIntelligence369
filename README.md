@@ -35,3 +35,6 @@ See [matched-budget specialist training and evaluation](docs/PHASE2.md). Run `py
 
 ## Phase 3: six-domain memory mesh
 See [Phase 3](docs/PHASE3.md) and the browser console at `mesh.html`. Train with `--profile six` for six specialists and a parameter-matched monolith.
+
+## Phase 4: nine-node causal composition
+See [Phase 4](docs/PHASE4.md) for nine-domain training and the deterministic causal-belt experiment, with a flat scheduler control.

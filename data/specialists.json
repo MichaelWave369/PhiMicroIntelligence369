@@ -304,5 +304,158 @@
       ]
     ],
     "unknown": "zorpunit"
+  },
+  "geometry": {
+    "templates": [
+      "how many sides does a {subject} have",
+      "number of polygon sides for {subject}",
+      "polygon sides of {subject}"
+    ],
+    "heldTemplate": "what is the polygon side count of {subject}",
+    "facts": [
+      [
+        "triangle",
+        "3",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ],
+      [
+        "quadrilateral",
+        "4",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ],
+      [
+        "pentagon",
+        "5",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ],
+      [
+        "hexagon",
+        "6",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ],
+      [
+        "heptagon",
+        "7",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ],
+      [
+        "octagon",
+        "8",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ],
+      [
+        "nonagon",
+        "9",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ],
+      [
+        "decagon",
+        "10",
+        "https://mathworld.wolfram.com/Polygon.html"
+      ]
+    ],
+    "unknown": "zorpagon"
+  },
+  "music": {
+    "templates": [
+      "how many semitones in a {subject}",
+      "semitone count of {subject}",
+      "number of semitones for {subject}"
+    ],
+    "heldTemplate": "what is the semitone distance of {subject}",
+    "facts": [
+      [
+        "minor second",
+        "1",
+        "https://openmusictheory.github.io/intervals.html"
+      ],
+      [
+        "major second",
+        "2",
+        "https://openmusictheory.github.io/intervals.html"
+      ],
+      [
+        "minor third",
+        "3",
+        "https://openmusictheory.github.io/intervals.html"
+      ],
+      [
+        "major third",
+        "4",
+        "https://openmusictheory.github.io/intervals.html"
+      ],
+      [
+        "perfect fourth",
+        "5",
+        "https://openmusictheory.github.io/intervals.html"
+      ],
+      [
+        "perfect fifth",
+        "7",
+        "https://openmusictheory.github.io/intervals.html"
+      ],
+      [
+        "minor sixth",
+        "8",
+        "https://openmusictheory.github.io/intervals.html"
+      ],
+      [
+        "octave",
+        "12",
+        "https://openmusictheory.github.io/intervals.html"
+      ]
+    ],
+    "unknown": "zorpinterval"
+  },
+  "astronomy": {
+    "templates": [
+      "what is the planet order of {subject} from the sun",
+      "planet order of {subject} from the sun",
+      "give the planet order of {subject}"
+    ],
+    "heldTemplate": "what ordinal position in planet order is {subject}",
+    "facts": [
+      [
+        "mercury",
+        "1",
+        "https://science.nasa.gov/solar-system/planets/"
+      ],
+      [
+        "venus",
+        "2",
+        "https://science.nasa.gov/solar-system/planets/"
+      ],
+      [
+        "earth",
+        "3",
+        "https://science.nasa.gov/solar-system/planets/"
+      ],
+      [
+        "mars",
+        "4",
+        "https://science.nasa.gov/solar-system/planets/"
+      ],
+      [
+        "jupiter",
+        "5",
+        "https://science.nasa.gov/solar-system/planets/"
+      ],
+      [
+        "saturn",
+        "6",
+        "https://science.nasa.gov/solar-system/planets/"
+      ],
+      [
+        "uranus",
+        "7",
+        "https://science.nasa.gov/solar-system/planets/"
+      ],
+      [
+        "neptune",
+        "8",
+        "https://science.nasa.gov/solar-system/planets/"
+      ]
+    ],
+    "unknown": "zorplanet"
   }
 }

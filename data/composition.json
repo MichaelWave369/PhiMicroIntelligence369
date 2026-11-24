@@ -1,0 +1,184 @@
+[
+  {
+    "id": "sum-known",
+    "nodes": [
+      {
+        "id": "a",
+        "op": "query",
+        "deps": [],
+        "question": "polygon sides of hexagon"
+      },
+      {
+        "id": "b",
+        "op": "query",
+        "deps": [],
+        "question": "semitone count of perfect fifth"
+      },
+      {
+        "id": "out",
+        "op": "sum",
+        "deps": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "output": "out",
+    "expected": "13",
+    "split": "known"
+  },
+  {
+    "id": "three-known",
+    "nodes": [
+      {
+        "id": "a",
+        "op": "query",
+        "deps": [],
+        "question": "planet order of mars from the sun"
+      },
+      {
+        "id": "b",
+        "op": "query",
+        "deps": [],
+        "question": "polygon sides of triangle"
+      },
+      {
+        "id": "c",
+        "op": "query",
+        "deps": [],
+        "question": "semitone count of major third"
+      },
+      {
+        "id": "ab",
+        "op": "sum",
+        "deps": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "out",
+        "op": "sum",
+        "deps": [
+          "ab",
+          "c"
+        ]
+      }
+    ],
+    "output": "out",
+    "expected": "11",
+    "split": "known"
+  },
+  {
+    "id": "join-known",
+    "nodes": [
+      {
+        "id": "a",
+        "op": "query",
+        "deps": [],
+        "question": "capital city of japan"
+      },
+      {
+        "id": "b",
+        "op": "query",
+        "deps": [],
+        "question": "chemical symbol for gold"
+      },
+      {
+        "id": "out",
+        "op": "join",
+        "deps": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "output": "out",
+    "expected": "Tokyo | Au",
+    "split": "known"
+  },
+  {
+    "id": "compare-held-template",
+    "nodes": [
+      {
+        "id": "a",
+        "op": "query",
+        "deps": [],
+        "question": "what is the polygon side count of triangle"
+      },
+      {
+        "id": "b",
+        "op": "query",
+        "deps": [],
+        "question": "what is the semitone distance of minor third"
+      },
+      {
+        "id": "out",
+        "op": "equal",
+        "deps": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "output": "out",
+    "expected": "true",
+    "split": "held_template"
+  },
+  {
+    "id": "held-subject",
+    "nodes": [
+      {
+        "id": "a",
+        "op": "query",
+        "deps": [],
+        "question": "polygon sides of nonagon"
+      },
+      {
+        "id": "b",
+        "op": "query",
+        "deps": [],
+        "question": "planet order of earth from the sun"
+      },
+      {
+        "id": "out",
+        "op": "sum",
+        "deps": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "output": "out",
+    "expected": "12",
+    "split": "held_subject"
+  },
+  {
+    "id": "unknown",
+    "nodes": [
+      {
+        "id": "a",
+        "op": "query",
+        "deps": [],
+        "question": "polygon sides of zorpagon"
+      },
+      {
+        "id": "b",
+        "op": "query",
+        "deps": [],
+        "question": "planet order of earth from the sun"
+      },
+      {
+        "id": "out",
+        "op": "sum",
+        "deps": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "output": "out",
+    "expected": null,
+    "split": "unknown"
+  }
+]

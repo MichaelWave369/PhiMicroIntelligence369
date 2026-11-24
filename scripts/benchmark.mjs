@@ -7,7 +7,7 @@ const root=process.argv[2]||"runs",read=n=>JSON.parse(readFileSync(join(root,n),
 const train=read("train.json"),test=read("test.json"),manifest=read("manifest.json");
 if(manifest.schema!==1)throw Error("unsupported manifest");
 const domains=manifest.domains??THREE_DOMAINS;
-if(!Array.isArray(domains)||![3,6].includes(domains.length)||new Set(domains).size!==domains.length||domains.some(d=>!DOMAINS.includes(d)))throw Error("invalid domains");
+if(!Array.isArray(domains)||![3,6,9].includes(domains.length)||new Set(domains).size!==domains.length||domains.some(d=>!DOMAINS.includes(d)))throw Error("invalid domains");
 const models={};
 for(const d of [...domains,"monolith"]){
  const entry=manifest.models[d],bytes=readFileSync(join(root,d+".bin"));
