@@ -4,10 +4,10 @@ from pathlib import Path
 import torch
 from torch import nn
 from torch.nn import functional as F
-from dataset import build,DOMAINS
+from dataset import build,domains_for
 VOCAB,CTX=97,128
 # Matched trainable parameters: 3 * 23,744 == 71,232.
-CONFIGS={"specialist":(32,2,4,64),"monolith":(32,8,4,60)}
+CONFIGS={"specialist":(32,2,4,64),"monolith":(32,8,4,60),"monolith_six":(64,4,4,121)}
 def encode(s): return [1 if c=="\n" else ord(c)-30 for c in s]
 class Block(nn.Module):
     def __init__(self,d,h,m):
@@ -72,16 +72,16 @@ def train(rows,config,steps,batch_size,seed,device,path):
         parameters=sum(p.numel() for p in model.parameters()),config=list(config),steps=steps,examples=steps*batch_size,
         final_batch_loss=float(loss.detach().cpu()),seconds=time.perf_counter()-start,seed=seed)
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--steps",type=int,default=300);p.add_argument("--batch",type=int,default=8);p.add_argument("--seed",type=int,default=369);p.add_argument("--device",choices=("cpu","cuda"),default="cpu");p.add_argument("--out",type=Path,default=Path("runs"));a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("--profile",choices=("three","six"),default="three");p.add_argument("--steps",type=int,default=300);p.add_argument("--batch",type=int,default=8);p.add_argument("--seed",type=int,default=369);p.add_argument("--device",choices=("cpu","cuda"),default="cpu");p.add_argument("--out",type=Path,default=Path("runs"));a=p.parse_args()
     if a.steps<1 or a.batch<1:p.error("steps and batch must be positive")
     torch.set_num_threads(2);torch.use_deterministic_algorithms(True)
-    a.out.mkdir(parents=True,exist_ok=True);train_rows,test=build()
+    a.out.mkdir(parents=True,exist_ok=True);train_rows,test=build(a.profile);domains=domains_for(a.profile)
     for name,rows in (("train",train_rows),("test",test)):(a.out/(name+".json")).write_text(json.dumps(rows,indent=2)+"\n",encoding="utf-8")
     results={}
-    for i,d in enumerate(DOMAINS):
+    for i,d in enumerate(domains):
         results[d]=train([r for r in train_rows if r["domain"]==d],CONFIGS["specialist"],a.steps,a.batch,a.seed+i,a.device,a.out/(d+".bin"))
-    results["monolith"]=train(train_rows,CONFIGS["monolith"],3*a.steps,a.batch,a.seed,a.device,a.out/"monolith.bin")
-    assert sum(results[d]["parameters"] for d in DOMAINS)==results["monolith"]["parameters"]
-    (a.out/"manifest.json").write_text(json.dumps(dict(schema=1,device=a.device,torch=torch.__version__,models=results),indent=2)+"\n",encoding="utf-8")
+    results["monolith"]=train(train_rows,CONFIGS["monolith_six" if a.profile=="six" else "monolith"],len(domains)*a.steps,a.batch,a.seed,a.device,a.out/"monolith.bin")
+    assert sum(results[d]["parameters"] for d in domains)==results["monolith"]["parameters"]
+    (a.out/"manifest.json").write_text(json.dumps(dict(schema=1,profile=a.profile,domains=list(domains),device=a.device,torch=torch.__version__,models=results),indent=2)+"\n",encoding="utf-8")
     print(json.dumps(results,indent=2))
 if __name__=="__main__":main()
